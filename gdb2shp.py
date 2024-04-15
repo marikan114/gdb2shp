@@ -60,7 +60,8 @@ for layer in matching_layers:
     gdf.sindex
 
     # Export the GeoDataFrame as a shapefile
-    gdf.to_file(f'{output_dir}/{layer}{file_ext}', driver=output_format)
+    shp_path = os.path.join(output_dir, f'{layer}{file_ext}')
+    gdf.to_file(shp_path, driver=output_format)
 
     logging.info(f'Extraction of {layer} completed.')
 
