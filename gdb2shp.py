@@ -16,8 +16,9 @@ import logging
 gdb_dir = r'EMSN048_UTM32N.gdb'
 # Downloaded from https://emergency.copernicus.eu/mapping/list-of-components/EMSN177/ALL/ALL
 
-# Layer selection criteria
-query_word = 'FLOODRISK01POPRISK'
+# Layer selection criteria (leave empty to process all layers)
+# query_word = 'FLOODRISK01POPRISK'
+query_word = ''
 
 # Directory name for storing extracted shapefiles
 output_dir = 'extracted_shapefiles'
@@ -38,8 +39,13 @@ logging.basicConfig(filename=file_log, level=logging.INFO,
 # Get all the layers from the .gdb file
 layers = fiona.listlayers(gdb_dir)
 
-# Create a list to store matching layer names
-matching_layers = [layer for layer in layers if query_word in layer]
+# Filter layers based on the query_word if it's defined
+if query_word:
+    # Create a list to store matching layer names
+    matching_layers = [layer for layer in layers if query_word in layer]
+else:
+    # Create a list to store all layer names
+    matching_layers = layers
 
 # Create a directory to store the extracted shapefiles
 os.makedirs(output_dir, exist_ok=True)
