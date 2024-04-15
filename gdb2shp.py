@@ -13,7 +13,7 @@ import logging
 ##################
 
 # Path to a sample geodatabase directory
-gdb_dir = 'EMSN048_UTM32N.gdb'
+gdb_dir = r'EMSN048_UTM32N.gdb'
 # Downloaded from https://emergency.copernicus.eu/mapping/list-of-components/EMSN177/ALL/ALL
 
 # Layer selection criteria
