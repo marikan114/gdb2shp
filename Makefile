@@ -17,7 +17,7 @@ PIP 			= $(VIRTUAL_ENV)/bin/pip
 REQUIREMENTS	= requirements.txt
 
 # Set script name
-SCRIPT	= gb2shp.py
+SCRIPT	= gdb2shp.py
 
 # ANSI color codes
 BLACK        := $(shell tput -Txterm setaf 0)
